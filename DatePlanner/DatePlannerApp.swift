@@ -8,13 +8,22 @@ struct DatePlannerApp: App {
     
     // MARK: - STATIC PROPERTIES
     // MARK: - PROPERTY WRAPPERS
+    @StateObject private var eventData = EventData()
+    
+    
+    
     // MARK: - PROPERTIES
     // MARK: - COMPUTED PROPERTIES
     var body: some Scene {
         
         WindowGroup {
             
-            ContentView()
+            NavigationView {
+                EventList()
+                Text("Select an Event")
+                    .foregroundStyle(.secondary)
+            }
+            .environmentObject(eventData)
         }
     }
     
